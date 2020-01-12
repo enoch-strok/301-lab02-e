@@ -75,3 +75,16 @@ Animal.loadAnimals = () => {
 //Hide all images, and show "keyword" selected images//
 
 $(() => Animal.readJson());
+
+$( "#keywords" ).change(function() {
+  // alert( "Handler for .change() called to.");
+  $('main').find('div').remove();
+  const select = $('#keywords').val();
+  console.log(select);
+  Animal.allAnimals.forEach(animal => {
+    if(animal.keyword === select) {
+      animal.render();
+    }
+  })
+
+});
